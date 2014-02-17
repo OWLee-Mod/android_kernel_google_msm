@@ -429,7 +429,7 @@ static void cpufreq_interactive_timer(unsigned long data)
 	loadadjfreq = (unsigned int)cputime_speedadj * 100;
 	cpu_load = loadadjfreq / pcpu->target_freq;
 	pcpu->prev_load = cpu_load;
-	boosted = boost_val || now < boostpulse_endtime;
+	boosted = mako_boosted || boost_val || now < boostpulse_endtime;
 
 	// HACK HACK HACK BEGIN
 	if (counter < 5) {
